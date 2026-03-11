@@ -1,0 +1,269 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                            📖 LOGOS.RV - MVP                                 ║
+║                                                                              ║
+║              Plateforme de Recherche Biblique par IA                         ║
+║              pour Pasteurs et Prédicateurs                                   ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+📋 RÉSUMÉ EXÉCUTIF
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 VISION
+   Permettre aux serviteurs de Dieu de préparer leurs messages plus efficacement
+   en combinant recherche IA dans les Écritures et organisation de fiches.
+
+👥 PUBLIC CIBLE
+   Pasteurs et prédicateurs francophones
+
+💡 PROBLÈME RÉSOLU
+   ✗ Recherche manuelle longue dans plusieurs versions de la Bible
+   ✗ Difficulté à trouver des enseignements connexes (Branham, pasteur)
+   ✗ Notes de prédication désorganisées
+   ✗ Préparation de messages chronophage
+
+✅ SOLUTION
+   ✓ Recherche IA sémantique (mots-clés + Q&A)
+   ✓ Sources multiples (3 Bibles + Branham + Pasteur)
+   ✓ Fiches de prédication structurées
+   ✓ Sauvegarde et organisation automatique
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 FONCTIONNALITÉS MVP (7 semaines)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. 🔐 AUTHENTIFICATION
+   • Inscription/Connexion (Email + Google OAuth)
+   • Reset password
+   • Protection des routes
+
+2. 🔍 RECHERCHE IA
+   • Mode Recherche (mots-clés, thèmes, versets)
+   • Mode Q&A (questions en langage naturel)
+   • Sources: Darby, Segond, Martin, Branham, Pasteur
+   • Résultats en <3 secondes
+   • Historique des recherches
+
+3. 📝 FICHES DE PRÉDICATION
+   • CRUD complet (Create, Read, Update, Delete)
+   • Structure: Titre, Thème, Versets, Plan, Notes
+   • Ajout de versets depuis recherche
+   • Sauvegarde automatique
+   • Liste et recherche de fiches
+
+4. 📊 DASHBOARD
+   • Fiches récentes (5 dernières)
+   • Recherches récentes (5 dernières)
+   • Statistiques d'utilisation
+   • Accès rapide aux fonctionnalités
+
+5. ⚙️ ADMINISTRATION
+   • Upload prédications (.txt, .docx, .pptx)
+   • Indexation automatique (Inngest)
+   • Gestion des documents
+   • Statut d'indexation
+
+6. 💎 FREEMIUM
+   • Plan Gratuit: 10 recherches/jour, 5 fiches max
+   • Plan Premium: 9.99€/mois, illimité
+   • Intégration Stripe (paiements + webhooks)
+   • Gestion des abonnements
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🛠️ STACK TECHNIQUE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FRONTEND
+├─ Next.js 14 (App Router)
+├─ React 18 + TypeScript
+├─ Tailwind CSS
+└─ Shadcn/ui
+
+BACKEND
+├─ Next.js API Routes
+├─ Prisma ORM
+├─ PostgreSQL (Neon)
+├─ Upstash Redis (cache)
+└─ Upstash Vector (embeddings)
+
+SERVICES
+├─ NextAuth.js (auth)
+├─ Stripe (payments)
+├─ OpenAI API (IA)
+├─ Inngest (jobs)
+├─ Vercel (hosting)
+└─ PostHog (analytics)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📅 ROADMAP (7 SEMAINES)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Semaine 1  │ Setup + Auth
+Semaine 2-3│ Infrastructure IA + Upload
+Semaine 3-4│ Recherche IA (mots-clés + Q&A)
+Semaine 4-5│ Fiches de prédication
+Semaine 5  │ Dashboard
+Semaine 6  │ Freemium + Stripe
+Semaine 7  │ Polish + Launch Beta 🚀
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💰 MODÈLE ÉCONOMIQUE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PLAN GRATUIT
+├─ 10 recherches/jour
+├─ 5 fiches maximum
+├─ Accès 3 Bibles
+└─ Extraits Branham
+
+PLAN PREMIUM (9.99€/mois)
+├─ Recherches illimitées
+├─ Fiches illimitées
+├─ Accès complet Branham
+├─ Prédications pasteur
+├─ Export PDF
+└─ Support prioritaire
+
+COÛTS (1000 users actifs)
+├─ Vercel Pro: $20/mois
+├─ Neon: $19/mois
+├─ Upstash: ~$15/mois
+├─ OpenAI API: ~$50/mois
+└─ Total: ~$100-120/mois
+
+REVENUS POTENTIELS
+├─ 10% conversion → 100 users premium
+├─ 100 × 9.99€ = 999€/mois
+└─ Rentable dès 150 users actifs ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 MÉTRIQUES DE SUCCÈS (3 premiers mois)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ACQUISITION    │ 100 utilisateurs inscrits
+ACTIVATION     │ 60% créent au moins 1 fiche
+RÉTENTION      │ 40% reviennent après 7 jours
+CONVERSION     │ 10% passent en Premium
+PERFORMANCE    │ Recherche < 3 secondes
+SATISFACTION   │ NPS > 40
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 DOCUMENTATION CRÉÉE (11 fichiers)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1.  PRD.md                 │ Product Requirements Document (17 KB)
+2.  README.md              │ Documentation projet (5.3 KB)
+3.  CLAUDE.md              │ Configuration Claude Code (5.5 KB)
+4.  QUICKSTART.md          │ Guide démarrage rapide (12 KB)
+5.  INDEX.md               │ Table des matières complète (10 KB)
+6.  ARCHITECTURE_AI.md     │ Architecture IA & RAG (13 KB)
+7.  DEPLOYMENT.md          │ Guide de déploiement (12 KB)
+8.  USER_STORIES.md        │ 33 user stories détaillées (16 KB)
+9.  prisma-schema.prisma   │ Schéma base de données (5.1 KB)
+10. types.ts               │ Types TypeScript (7.1 KB)
+11. .env.example           │ Template variables env (2.7 KB)
+
+TOTAL: ~106 KB de documentation complète ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 PROCHAINES ÉTAPES IMMÉDIATES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Créer le repo GitHub
+   $ cd /home/hp/logos-rv
+   $ git init
+   $ git add .
+   $ git commit -m "docs: complete project documentation"
+   $ gh repo create logos-rv --public --source=. --push
+
+2. Initialiser Next.js
+   $ npx create-next-app@latest . --typescript --tailwind --app --src-dir
+
+3. Setup Prisma
+   $ npm install @prisma/client prisma
+   $ npx prisma init
+   $ # Copier prisma-schema.prisma → prisma/schema.prisma
+   $ npx prisma generate
+   $ npx prisma migrate dev --name init
+
+4. Configurer les services externes
+   • Neon (PostgreSQL)
+   • Upstash (Redis + Vector)
+   • OpenAI API
+   • Google OAuth
+   • Stripe
+
+5. Commencer le développement
+   $ npm run dev
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📖 GUIDE DE LECTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+POUR COMPRENDRE LE PROJET
+1. INDEX.md          → Vue d'ensemble complète
+2. PRD.md            → Vision et spécifications
+3. USER_STORIES.md   → Fonctionnalités détaillées
+
+POUR DÉVELOPPER
+1. QUICKSTART.md     → Démarrage rapide
+2. ARCHITECTURE_AI.md→ Architecture technique
+3. types.ts          → Types TypeScript
+4. prisma-schema.prisma → Schéma DB
+
+POUR DÉPLOYER
+1. DEPLOYMENT.md     → Guide complet
+2. .env.example      → Variables d'environnement
+3. CLAUDE.md         → Configuration
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ CHECKLIST FINALE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Documentation
+[✓] PRD complet avec vision et roadmap
+[✓] Architecture technique détaillée
+[✓] 33 user stories prêtes à implémenter
+[✓] Schéma de base de données
+[✓] Types TypeScript
+[✓] Guide de déploiement
+[✓] Guide de démarrage rapide
+
+Prêt pour le Développement
+[ ] Créer repo GitHub
+[ ] Initialiser Next.js
+[ ] Setup Prisma
+[ ] Configurer services externes
+[ ] Premier commit
+[ ] Commencer semaine 1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 FÉLICITATIONS !
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Tu disposes maintenant d'une documentation complète et professionnelle pour
+développer Logos.rv, une plateforme qui va aider des centaines de pasteurs
+à préparer leurs messages plus efficacement.
+
+Le projet est bien structuré, techniquement solide, et économiquement viable.
+
+Bon développement ! 🚀
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Créé avec ❤️ par Claude Code
+Date: 10 Mars 2026, 23:36
+Version: 1.0 MVP
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
