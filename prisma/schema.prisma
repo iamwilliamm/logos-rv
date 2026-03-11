@@ -1,0 +1,216 @@
+// prisma/schema.prisma
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// USERS & AUTHENTICATION
+// ============================================
+
+model User {
+  id    String     @id @default(cuid())
+  email String     @unique
+  name  String?
+  password String?
+  image String?
+  role  Role       @default(USER)
+  plan  Plan       @default(FREE)
+
+  // Stripe
+  stripeCustomerId       String?   @unique
+  stripeSubscriptionId   String?   @unique
+  stripePriceId          String?
+  stripeCurrentPeriodEnd DateTime?
+
+  // Relations
+  accounts  Account[]
+  sessions  Session[]
+  sheets    Sheet[]
+  searches  Search[]
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+  @@index([stripeCustomerId])
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Plan {
+  FREE
+  PREMIUM
+}
+
+// NextAuth.js models
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ============================================
+// FICHES DE PRÉDICATION
+// ============================================
+
+model Sheet {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Contenu
+  title         String
+  theme         String?
+  mainVerses    Json?
+  outline       Json?
+  notes         String?  @db.Text
+  searchResults Json?
+
+  // Metadata
+  tags          String[]
+
+  // Timestamps
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([userId])
+  @@index([createdAt])
+  @@index([updatedAt])
+}
+
+// ============================================
+// RECHERCHES
+// ============================================
+
+model Search {
+  id        String     @id @default(cuid())
+  userId    String
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Requête
+  query     String
+  mode      SearchMode
+  filters   Json?
+
+  // Résultats
+  results   Json
+
+  // Performance
+  latencyMs Int?
+
+  // Timestamps
+  createdAt DateTime   @default(now())
+
+  @@index([userId])
+  @@index([createdAt])
+  @@index([mode])
+}
+
+enum SearchMode {
+  SEARCH
+  QA
+}
+
+// ============================================
+// DOCUMENTS (Sources indexées)
+// ============================================
+
+model Document {
+  id        String   @id @default(cuid())
+
+  // Identification
+  title     String
+  source    Source
+
+  // Contenu
+  content   String   @db.Text
+  metadata  Json?
+
+  // Indexation
+  vectorId  String?
+  indexed   Boolean  @default(false)
+
+  // Fichier original
+  filePath  String?
+  fileType  String?
+  fileSize  Int?
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([source])
+  @@index([indexed])
+  @@index([createdAt])
+}
+
+enum Source {
+  BIBLE_DARBY
+  BIBLE_SEGOND
+  BIBLE_MARTIN
+  BRANHAM
+  PASTOR
+}
+
+// ============================================
+// RATE LIMITING
+// ============================================
+
+model RateLimit {
+  id         String   @id @default(cuid())
+  userId     String
+  action     String
+  count      Int      @default(0)
+  resetAt    DateTime
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([userId, action])
+  @@index([userId])
+  @@index([resetAt])
+}
