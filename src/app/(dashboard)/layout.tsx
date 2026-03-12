@@ -4,6 +4,7 @@ import { signOut, useSession } from "next-auth/react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
+import { useEffect, useState } from "react"
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard" },
@@ -19,6 +20,20 @@ export default function DashboardLayout({
 }) {
   const { data: session } = useSession()
   const pathname = usePathname()
+  const [isAdmin, setIsAdmin] = useState(false)
+
+  useEffect(() => {
+    const checkAdmin = async () => {
+      if (!session?.user) return
+      try {
+        const response = await fetch("/api/admin/documents")
+        setIsAdmin(response.status !== 403)
+      } catch {
+        setIsAdmin(false)
+      }
+    }
+    checkAdmin()
+  }, [session])
 
   return (
     <div className="min-h-screen bg-background">
@@ -48,6 +63,18 @@ export default function DashboardLayout({
                   </Link>
                 )
               })}
+              {isAdmin && (
+                <Link
+                  href="/admin"
+                  className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                    pathname === "/admin"
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  }`}
+                >
+                  Admin
+                </Link>
+              )}
             </nav>
             <div className="border-t p-4">
               <div className="flex items-center gap-3">
