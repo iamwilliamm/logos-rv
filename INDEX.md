@@ -11,7 +11,9 @@
 ### 1. Documents Stratégiques
 
 #### [PRD.md](./PRD.md) - Product Requirements Document (17 KB)
+
 **Contenu:**
+
 - Vision du produit et problème à résoudre
 - Public cible (Pasteurs et prédicateurs)
 - Fonctionnalités MVP détaillées (Auth, Recherche IA, Fiches, Dashboard, Admin, Freemium)
@@ -27,7 +29,9 @@
 ---
 
 #### [README.md](./README.md) - Documentation Projet (5.3 KB)
+
 **Contenu:**
+
 - Présentation du projet
 - Fonctionnalités principales
 - Stack technique
@@ -44,7 +48,9 @@
 ### 2. Documentation Technique
 
 #### [ARCHITECTURE_AI.md](./ARCHITECTURE_AI.md) - Architecture IA & RAG (13 KB)
+
 **Contenu:**
+
 - Pipeline de recherche (Embedding → Vector Search → LLM)
 - Flow de recherche IA détaillé
 - Indexation des documents (parsing, chunking, embeddings)
@@ -59,7 +65,9 @@
 ---
 
 #### [prisma-schema.prisma](./prisma-schema.prisma) - Schéma Base de Données (5.1 KB)
+
 **Contenu:**
+
 - Modèle User (auth, plan, Stripe)
 - Modèle Account & Session (NextAuth)
 - Modèle Sheet (fiches de prédication)
@@ -73,7 +81,9 @@
 ---
 
 #### [types.ts](./types.ts) - Types TypeScript (7.1 KB)
+
 **Contenu:**
+
 - Types User & Auth
 - Types Bible (Verse, BibleVersion)
 - Types Sheet (OutlinePoint, CreateSheetInput)
@@ -91,7 +101,9 @@
 ### 3. Documentation Utilisateur
 
 #### [USER_STORIES.md](./USER_STORIES.md) - User Stories (16 KB)
+
 **Contenu:**
+
 - 33 user stories détaillées
 - **Authentification:** 5 stories (inscription, connexion, OAuth, reset password)
 - **Recherche IA:** 5 stories (mots-clés, Q&A, filtres, historique)
@@ -109,7 +121,9 @@
 ### 4. Documentation Déploiement
 
 #### [DEPLOYMENT.md](./DEPLOYMENT.md) - Guide de Déploiement (12 KB)
+
 **Contenu:**
+
 - Environnements (Local, Staging, Production)
 - Setup initial (Next.js, Prisma, dépendances)
 - Configuration de tous les services externes:
@@ -134,7 +148,9 @@
 ---
 
 #### [.env.example](./.env.example) - Template Variables (2.7 KB)
+
 **Contenu:**
+
 - Toutes les variables d'environnement nécessaires
 - Commentaires explicatifs pour chaque variable
 - Sections organisées (Database, Auth, AI, Payments, etc.)
@@ -146,7 +162,9 @@
 ### 5. Guides Pratiques
 
 #### [QUICKSTART.md](./QUICKSTART.md) - Démarrage Rapide (12 KB)
+
 **Contenu:**
+
 - Démarrage en 5 minutes
 - Liste de tous les fichiers créés
 - Prochaines étapes recommandées (semaine par semaine)
@@ -163,7 +181,9 @@
 ---
 
 #### [CLAUDE.md](./CLAUDE.md) - Configuration Claude Code (5.5 KB)
+
 **Contenu:**
+
 - Vue d'ensemble du projet
 - Stack technique
 - Architecture des dossiers
@@ -182,17 +202,20 @@
 ## 🎯 Par Où Commencer ?
 
 ### Si tu veux comprendre le PROJET :
+
 1. 📄 **PRD.md** - Vision et spécifications
 2. 📘 **README.md** - Vue d'ensemble technique
 3. 📝 **USER_STORIES.md** - Fonctionnalités détaillées
 
 ### Si tu veux DÉVELOPPER :
+
 1. 🚀 **QUICKSTART.md** - Démarrage rapide
 2. 🏗️ **ARCHITECTURE_AI.md** - Architecture technique
 3. 💾 **prisma-schema.prisma** - Schéma DB
 4. 📦 **types.ts** - Types TypeScript
 
 ### Si tu veux DÉPLOYER :
+
 1. 🌐 **DEPLOYMENT.md** - Guide complet
 2. 🔐 **.env.example** - Variables d'environnement
 3. ⚙️ **CLAUDE.md** - Configuration
@@ -202,6 +225,7 @@
 ## 📊 Statistiques du Projet
 
 ### Documentation
+
 - **10 fichiers** créés
 - **~100 KB** de documentation
 - **33 user stories** détaillées
@@ -209,6 +233,7 @@
 - **1000+ lignes** de code d'exemple
 
 ### Fonctionnalités MVP
+
 - ✅ Authentification (Email + Google OAuth)
 - ✅ Recherche IA (Mots-clés + Q&A)
 - ✅ Fiches de prédication (CRUD complet)
@@ -217,6 +242,7 @@
 - ✅ Freemium + Stripe
 
 ### Stack Technique
+
 - **Frontend:** Next.js 14, React, TypeScript, Tailwind, Shadcn/ui
 - **Backend:** Next.js API Routes, Prisma, PostgreSQL (Neon)
 - **IA:** OpenAI (embeddings + GPT-4), Upstash Vector
@@ -252,6 +278,7 @@ logos-rv/
 ## 🎨 Diagrammes Conceptuels
 
 ### Architecture Globale
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                         FRONTEND                            │
@@ -274,6 +301,7 @@ logos-rv/
 ```
 
 ### Flow de Recherche IA
+
 ```
 User Query
     │
@@ -294,6 +322,7 @@ Return Results + Sources
 ```
 
 ### Flow d'Indexation
+
 ```
 Admin Upload Files (.txt, .docx, .pptx)
     │
@@ -318,12 +347,14 @@ Update DB (indexed: true)
 ## 💰 Modèle Économique
 
 ### Plan Gratuit (FREE)
+
 - 10 recherches/jour
 - 5 fiches maximum
 - Accès 3 Bibles
 - Extraits Branham
 
 ### Plan Premium (9.99€/mois)
+
 - Recherches illimitées
 - Fiches illimitées
 - Accès complet Branham
@@ -332,6 +363,7 @@ Update DB (indexed: true)
 - Support prioritaire
 
 ### Coûts Estimés (1000 users actifs)
+
 - Vercel Pro: $20/mois
 - Neon Launch: $19/mois
 - Upstash: ~$15/mois
@@ -340,6 +372,7 @@ Update DB (indexed: true)
 - **Total: ~$100-120/mois**
 
 ### Revenus Potentiels
+
 - 10% conversion FREE → PREMIUM
 - 100 users premium × 9.99€ = **999€/mois**
 - **Rentable dès 150 users actifs**
@@ -395,6 +428,7 @@ Semaine 7: Launch
 ## ✅ Checklist Utilisation
 
 ### Pour Démarrer le Développement
+
 - [ ] Lire PRD.md
 - [ ] Lire QUICKSTART.md
 - [ ] Créer repo GitHub
@@ -406,6 +440,7 @@ Semaine 7: Launch
 - [ ] Premier commit
 
 ### Pour Implémenter une Feature
+
 - [ ] Lire la user story correspondante (USER_STORIES.md)
 - [ ] Vérifier l'architecture (ARCHITECTURE_AI.md si IA)
 - [ ] Créer une branche feature
@@ -415,6 +450,7 @@ Semaine 7: Launch
 - [ ] Créer PR
 
 ### Pour Déployer
+
 - [ ] Lire DEPLOYMENT.md
 - [ ] Configurer Vercel
 - [ ] Ajouter variables d'environnement
@@ -427,6 +463,7 @@ Semaine 7: Launch
 ## 🎓 Ressources Complémentaires
 
 ### Documentation Officielle
+
 - [Next.js Docs](https://nextjs.org/docs)
 - [Prisma Docs](https://www.prisma.io/docs)
 - [NextAuth Docs](https://next-auth.js.org/)
@@ -435,6 +472,7 @@ Semaine 7: Launch
 - [Shadcn/ui Docs](https://ui.shadcn.com/)
 
 ### Communautés
+
 - [Next.js Discord](https://nextjs.org/discord)
 - [Prisma Discord](https://pris.ly/discord)
 - [Vercel Community](https://vercel.com/community)
@@ -444,11 +482,13 @@ Semaine 7: Launch
 ## 📞 Support
 
 ### Questions sur la Documentation
+
 - Revenir vers Claude Code
 - Consulter les fichiers correspondants
 - Vérifier les exemples de code
 
 ### Problèmes Techniques
+
 - Consulter DEPLOYMENT.md (section Debugging)
 - Vérifier les logs Vercel
 - Tester en local d'abord
@@ -460,6 +500,7 @@ Semaine 7: Launch
 Tu disposes maintenant d'une **documentation complète et professionnelle** pour développer Logos.rv.
 
 ### Ce qui a été créé :
+
 ✅ Vision produit claire (PRD)
 ✅ Architecture technique détaillée
 ✅ 33 user stories prêtes à implémenter
@@ -469,6 +510,7 @@ Tu disposes maintenant d'une **documentation complète et professionnelle** pour
 ✅ Guide de démarrage rapide
 
 ### Prochaine étape :
+
 ```bash
 cd /home/hp/logos-rv
 git init

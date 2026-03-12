@@ -5,6 +5,7 @@
 ## 🎯 Vision
 
 Logos.rv permet aux serviteurs de Dieu de préparer leurs messages plus efficacement en combinant :
+
 - Recherche sémantique dans les Écritures (Darby, Segond, Martin)
 - Accès aux enseignements de William Marrion Branham
 - Accès aux prédications de pasteurs locaux
@@ -99,12 +100,14 @@ Voir [PRD.md](./PRD.md) pour détails complets.
 ## 📊 Modèle Freemium
 
 ### Plan Gratuit
+
 - 10 recherches/jour
 - 5 fiches maximum
 - Accès aux 3 Bibles
 - Extraits prédications Branham
 
 ### Plan Premium (9.99€/mois)
+
 - Recherches illimitées
 - Fiches illimitées
 - Accès complet Branham

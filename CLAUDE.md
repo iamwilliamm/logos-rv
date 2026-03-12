@@ -10,6 +10,7 @@ Logos.rv est une plateforme SaaS permettant aux pasteurs et prédicateurs de fai
 ## Stack Technique
 
 ### Frontend
+
 - Next.js 14+ (App Router)
 - TypeScript (strict mode)
 - React 18+
@@ -18,6 +19,7 @@ Logos.rv est une plateforme SaaS permettant aux pasteurs et prédicateurs de fai
 - React Hook Form + Zod pour les formulaires
 
 ### Backend
+
 - Next.js API Routes (App Router)
 - Prisma ORM
 - PostgreSQL (Neon)
@@ -26,6 +28,7 @@ Logos.rv est une plateforme SaaS permettant aux pasteurs et prédicateurs de fai
 - Inngest (background jobs)
 
 ### Services Externes
+
 - NextAuth.js (authentification)
 - Stripe (paiements)
 - OpenAI API (embeddings + GPT-4) ou Anthropic Claude
@@ -35,6 +38,7 @@ Logos.rv est une plateforme SaaS permettant aux pasteurs et prédicateurs de fai
 ## Architecture
 
 ### Structure des dossiers
+
 ```
 src/
 ├── app/
@@ -56,6 +60,7 @@ src/
 ```
 
 ### Base de données (Prisma)
+
 - **User:** Utilisateurs (email, role, plan)
 - **Sheet:** Fiches de prédication
 - **Search:** Historique des recherches
@@ -64,33 +69,39 @@ src/
 ## Fonctionnalités MVP
 
 ### 1. Authentification
+
 - Inscription/connexion (email + Google)
 - Reset password
 - Protection des routes
 
 ### 2. Recherche IA
+
 - Mode recherche par mots-clés
 - Mode Q&A (questions en langage naturel)
 - Sources: Bibles (Darby, Segond, Martin) + prédications Branham + prédications pasteur
 - Affichage des références exactes
 
 ### 3. Fiches de Prédication
+
 - CRUD complet
 - Structure: titre, thème, versets, plan, notes
 - Sauvegarde automatique
 - Ajout de versets depuis recherche
 
 ### 4. Dashboard
+
 - Fiches récentes
 - Recherches récentes
 - Statistiques basiques
 
 ### 5. Admin
+
 - Upload prédications (.txt, .docx, .pptx)
 - Indexation automatique
 - Gestion des documents
 
 ### 6. Freemium
+
 - Plan gratuit: 10 recherches/jour, 5 fiches max
 - Plan premium: illimité + export PDF
 - Intégration Stripe
@@ -98,30 +109,35 @@ src/
 ## Conventions de Code
 
 ### TypeScript
+
 - Mode strict activé
 - Pas de `any`, utiliser `unknown` si nécessaire
 - Interfaces pour les types de données
 - Zod pour validation runtime
 
 ### React/Next.js
+
 - Server Components par défaut
 - Client Components uniquement si nécessaire (interactivité)
 - Utiliser `use server` pour les Server Actions
 - Pas de `use client` inutile
 
 ### Styling
+
 - Tailwind CSS uniquement
 - Utiliser les composants Shadcn/ui
 - Pas de CSS modules ou styled-components
 - Classes utilitaires Tailwind
 
 ### Naming
+
 - Fichiers: kebab-case (`user-profile.tsx`)
 - Composants: PascalCase (`UserProfile`)
 - Fonctions: camelCase (`getUserData`)
 - Constantes: UPPER_SNAKE_CASE (`API_URL`)
 
 ### API Routes
+
 - RESTful conventions
 - Validation avec Zod
 - Gestion d'erreurs cohérente

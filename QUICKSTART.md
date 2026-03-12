@@ -3,6 +3,7 @@
 ## 🚀 Démarrage en 5 Minutes
 
 ### Prérequis
+
 - Node.js 18+ installé
 - Git installé
 - Compte GitHub
@@ -39,6 +40,7 @@ Ouvrir [http://localhost:3000](http://localhost:3000)
 Voici tous les documents créés pour ton projet :
 
 ### Documentation Principale
+
 1. **PRD.md** - Product Requirements Document complet
    - Vision du produit
    - Fonctionnalités MVP
@@ -59,6 +61,7 @@ Voici tous les documents créés pour ton projet :
    - Contribution
 
 ### Documentation Technique
+
 4. **ARCHITECTURE_AI.md** - Architecture IA & RAG
    - Pipeline de recherche
    - Indexation des documents
@@ -82,6 +85,7 @@ Voici tous les documents créés pour ton projet :
    - Post-MVP (3 stories)
 
 ### Fichiers Techniques
+
 7. **prisma-schema.prisma** - Schéma de base de données
    - Modèles User, Sheet, Search, Document
    - Relations
@@ -104,6 +108,7 @@ Voici tous les documents créés pour ton projet :
 ### Semaine 1 : Setup & Fondations
 
 #### Jour 1-2 : Initialisation
+
 ```bash
 # Créer le repo GitHub
 gh repo create logos-rv --public --clone
@@ -121,6 +126,7 @@ git push origin main
 ```
 
 #### Jour 3-4 : Base de Données & Auth
+
 ```bash
 # Setup Prisma
 npm install @prisma/client prisma
@@ -136,6 +142,7 @@ npm install next-auth
 ```
 
 #### Jour 5-7 : UI Foundation
+
 ```bash
 # Setup Shadcn/ui
 npx shadcn-ui@latest init
@@ -207,32 +214,39 @@ npx shadcn-ui@latest add button input form card dialog
 ### Tutoriels Recommandés
 
 **Next.js 14 App Router:**
+
 - [Next.js Learn](https://nextjs.org/learn)
 - [App Router Documentation](https://nextjs.org/docs/app)
 
 **NextAuth.js:**
+
 - [NextAuth.js Documentation](https://next-auth.js.org/)
 - [NextAuth with App Router](https://next-auth.js.org/configuration/initialization#route-handlers-app)
 
 **Prisma:**
+
 - [Prisma Quickstart](https://www.prisma.io/docs/getting-started/quickstart)
 - [Prisma with Next.js](https://www.prisma.io/docs/guides/other/troubleshooting-orm/help-articles/nextjs-prisma-client-dev-practices)
 
 **Shadcn/ui:**
+
 - [Shadcn/ui Documentation](https://ui.shadcn.com/)
 - [Installation Guide](https://ui.shadcn.com/docs/installation/next)
 
 **OpenAI API:**
+
 - [OpenAI Embeddings Guide](https://platform.openai.com/docs/guides/embeddings)
 - [OpenAI Chat Completions](https://platform.openai.com/docs/guides/text-generation)
 
 **Stripe:**
+
 - [Stripe Next.js Guide](https://stripe.com/docs/payments/checkout/how-checkout-works)
 - [Stripe Webhooks](https://stripe.com/docs/webhooks)
 
 ### Exemples de Code
 
 **Repo similaires (inspiration):**
+
 - [Next.js SaaS Starter](https://github.com/vercel/nextjs-subscription-payments)
 - [Taxonomy (Shadcn)](https://github.com/shadcn/taxonomy)
 - [ChatGPT Clone](https://github.com/mckaywrigley/chatbot-ui)
@@ -242,6 +256,7 @@ npx shadcn-ui@latest add button input form card dialog
 ## 🛠️ Outils de Développement
 
 ### Extensions VS Code Recommandées
+
 ```json
 {
   "recommendations": [
@@ -255,6 +270,7 @@ npx shadcn-ui@latest add button input form card dialog
 ```
 
 ### Scripts Package.json
+
 ```json
 {
   "scripts": {
@@ -278,28 +294,33 @@ npx shadcn-ui@latest add button input form card dialog
 ## 💡 Conseils pour Réussir
 
 ### 1. Commencer Simple
+
 - Ne pas sur-engineer dès le début
 - MVP d'abord, optimisations ensuite
 - Tester rapidement avec de vrais utilisateurs
 
 ### 2. Itérer Rapidement
+
 - Déployer souvent (CI/CD)
 - Collecter du feedback tôt
 - Ajuster en fonction des retours
 
 ### 3. Monitorer Dès le Début
+
 - PostHog pour analytics
 - Vercel pour performance
 - Stripe pour paiements
 - Logs pour debugging
 
 ### 4. Gérer les Coûts
+
 - Surveiller l'usage OpenAI API
 - Cache agressif (Redis)
 - Limites strictes plan gratuit
 - Optimiser les embeddings
 
 ### 5. Sécurité First
+
 - Validation de toutes les entrées (Zod)
 - Rate limiting
 - Protection CSRF
@@ -310,6 +331,7 @@ npx shadcn-ui@latest add button input form card dialog
 ## 🎨 Design System
 
 ### Couleurs (Tailwind)
+
 ```js
 // tailwind.config.js
 module.exports = {
@@ -317,24 +339,26 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: '#f0f9ff',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
+          50: "#f0f9ff",
+          500: "#3b82f6",
+          600: "#2563eb",
+          700: "#1d4ed8",
         },
         // Ajouter vos couleurs de marque
-      }
-    }
-  }
+      },
+    },
+  },
 }
 ```
 
 ### Typographie
+
 - **Titres:** Font-bold, text-2xl à text-4xl
 - **Corps:** Font-normal, text-base
 - **Petits textes:** text-sm, text-muted-foreground
 
 ### Spacing
+
 - Utiliser les classes Tailwind standard (p-4, m-6, etc.)
 - Cohérence dans tout le projet
 
@@ -343,26 +367,31 @@ module.exports = {
 ## 📊 Métriques à Suivre (PostHog)
 
 ### Acquisition
+
 - Nombre d'inscriptions
 - Source de trafic
 - Taux de conversion landing → signup
 
 ### Activation
+
 - % utilisateurs qui font 1ère recherche
 - % utilisateurs qui créent 1ère fiche
 - Temps jusqu'à première action
 
 ### Rétention
+
 - Utilisateurs actifs quotidiens (DAU)
 - Utilisateurs actifs mensuels (MAU)
 - Taux de rétention J7, J30
 
 ### Conversion
+
 - % FREE → PREMIUM
 - Temps moyen avant conversion
 - Raisons d'abandon (surveys)
 
 ### Engagement
+
 - Nombre moyen de recherches/utilisateur
 - Nombre moyen de fiches/utilisateur
 - Temps passé sur l'app
@@ -374,24 +403,29 @@ module.exports = {
 ### Problèmes Courants
 
 **1. Prisma Client Not Generated**
+
 ```bash
 npx prisma generate
 ```
 
 **2. NextAuth Session Undefined**
+
 - Vérifier `NEXTAUTH_URL` et `NEXTAUTH_SECRET`
 - Vérifier les providers configurés
 
 **3. Stripe Webhook Fails**
+
 - Vérifier `STRIPE_WEBHOOK_SECRET`
 - Tester avec Stripe CLI: `stripe listen --forward-to localhost:3000/api/webhooks/stripe`
 
 **4. OpenAI API Errors**
+
 - Vérifier les crédits
 - Vérifier le rate limit
 - Vérifier la clé API
 
 **5. Upstash Connection Issues**
+
 - Vérifier les URLs et tokens
 - Vérifier les quotas
 
@@ -400,12 +434,14 @@ npx prisma generate
 ## 📞 Support & Communauté
 
 ### Obtenir de l'Aide
+
 - **Next.js:** [Discord Next.js](https://nextjs.org/discord)
 - **Prisma:** [Discord Prisma](https://pris.ly/discord)
 - **Stripe:** [Support Stripe](https://support.stripe.com/)
 - **OpenAI:** [Community Forum](https://community.openai.com/)
 
 ### Contribuer
+
 - Fork le projet
 - Créer une branche feature
 - Soumettre une PR
@@ -416,6 +452,7 @@ npx prisma generate
 ## ✅ Checklist de Lancement
 
 ### Avant le Lancement Beta
+
 - [ ] Toutes les fonctionnalités P0 implémentées
 - [ ] Tests E2E passés
 - [ ] Performance optimisée (Lighthouse > 90)
@@ -428,6 +465,7 @@ npx prisma generate
 - [ ] Documentation utilisateur
 
 ### Lancement Beta Privée
+
 - [ ] 10-20 beta testers identifiés
 - [ ] Email d'invitation préparé
 - [ ] Formulaire de feedback créé
@@ -436,6 +474,7 @@ npx prisma generate
 - [ ] Réponse rapide aux bugs
 
 ### Lancement Public
+
 - [ ] Feedback beta intégré
 - [ ] Bugs critiques résolus
 - [ ] Stripe en mode Live
@@ -452,6 +491,7 @@ npx prisma generate
 Tu as maintenant tous les documents nécessaires pour démarrer le développement de **Logos.rv**.
 
 ### Récapitulatif des Fichiers
+
 1. ✅ PRD.md - Vision et spécifications complètes
 2. ✅ CLAUDE.md - Configuration Claude Code
 3. ✅ README.md - Documentation projet
@@ -464,6 +504,7 @@ Tu as maintenant tous les documents nécessaires pour démarrer le développemen
 10. ✅ QUICKSTART.md - Ce guide !
 
 ### Prochaine Action Immédiate
+
 ```bash
 # Créer le repo GitHub et commencer !
 cd /home/hp/logos-rv

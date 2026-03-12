@@ -3,12 +3,14 @@
 ## 🚀 Démarrage Rapide
 
 ### Installation
+
 ```bash
 cd /home/hp/logos-rv
 npm install
 ```
 
 ### Configuration
+
 ```bash
 # Copier le fichier d'environnement
 cp .env.example .env.local
@@ -17,6 +19,7 @@ cp .env.example .env.local
 ```
 
 ### Lancer le serveur de développement
+
 ```bash
 npm run dev
 ```
@@ -72,34 +75,40 @@ npm run format           # Formater le code
 ## 📝 Prochaines Étapes
 
 ### Semaine 1 : Setup & Auth
+
 - [ ] Setup Prisma avec Neon
 - [ ] Configurer NextAuth.js
 - [ ] Créer pages login/register
 - [ ] Implémenter Google OAuth
 
 ### Semaine 2-3 : Infrastructure IA
+
 - [ ] Setup Upstash Vector + Redis
 - [ ] Implémenter génération d'embeddings
 - [ ] Créer pipeline d'indexation
 - [ ] Interface admin upload
 
 ### Semaine 3-4 : Recherche IA
+
 - [ ] Interface de recherche
 - [ ] API endpoint /api/search
 - [ ] Mode Q&A avec GPT-4
 - [ ] Cache Redis
 
 ### Semaine 4-5 : Fiches de Prédication
+
 - [ ] CRUD fiches
 - [ ] Éditeur de fiches
 - [ ] Sauvegarde automatique
 
 ### Semaine 5-6 : Dashboard & Freemium
+
 - [ ] Page dashboard
 - [ ] Intégration Stripe
 - [ ] Gestion des limites
 
 ### Semaine 7 : Polish & Launch
+
 - [ ] Tests E2E
 - [ ] Optimisations
 - [ ] Déploiement production

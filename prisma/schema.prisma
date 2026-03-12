@@ -7,8 +7,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 // ============================================
@@ -21,8 +21,8 @@ model User {
   name  String?
   password String?
   image String?
-  role  Role       @default(USER)
-  plan  Plan       @default(FREE)
+  role  String     @default("USER")
+  plan  String     @default("FREE")
 
   // Stripe
   stripeCustomerId       String?   @unique
@@ -44,16 +44,6 @@ model User {
   @@index([stripeCustomerId])
 }
 
-enum Role {
-  USER
-  ADMIN
-}
-
-enum Plan {
-  FREE
-  PREMIUM
-}
-
 // NextAuth.js models
 model Account {
   id                String  @id @default(cuid())
@@ -61,12 +51,12 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -105,13 +95,13 @@ model Sheet {
   // Contenu
   title         String
   theme         String?
-  mainVerses    Json?
-  outline       Json?
-  notes         String?  @db.Text
-  searchResults Json?
+  mainVerses    String?
+  outline       String?
+  notes         String?
+  searchResults String?
 
   // Metadata
-  tags          String[]
+  tags          String?
 
   // Timestamps
   createdAt     DateTime @default(now())
@@ -133,11 +123,11 @@ model Search {
 
   // Requête
   query     String
-  mode      SearchMode
-  filters   Json?
+  mode      String
+  filters   String?
 
   // Résultats
-  results   Json
+  results   String
 
   // Performance
   latencyMs Int?
@@ -150,11 +140,6 @@ model Search {
   @@index([mode])
 }
 
-enum SearchMode {
-  SEARCH
-  QA
-}
-
 // ============================================
 // DOCUMENTS (Sources indexées)
 // ============================================
@@ -164,11 +149,11 @@ model Document {
 
   // Identification
   title     String
-  source    Source
+  source    String
 
   // Contenu
-  content   String   @db.Text
-  metadata  Json?
+  content   String
+  metadata  String?
 
   // Indexation
   vectorId  String?
@@ -186,14 +171,6 @@ model Document {
   @@index([source])
   @@index([indexed])
   @@index([createdAt])
-}
-
-enum Source {
-  BIBLE_DARBY
-  BIBLE_SEGOND
-  BIBLE_MARTIN
-  BRANHAM
-  PASTOR
 }
 
 // ============================================

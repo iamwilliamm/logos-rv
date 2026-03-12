@@ -7,18 +7,21 @@ Ce document décrit la stratégie de déploiement pour Logos.rv, de l'environnem
 ## Environnements
 
 ### 1. Local (Development)
+
 - **URL:** http://localhost:3000
 - **Base de données:** PostgreSQL local ou Neon (dev branch)
 - **Variables:** `.env.local`
 - **Usage:** Développement quotidien
 
 ### 2. Staging (Preview)
+
 - **URL:** https://logos-rv-staging.vercel.app
 - **Base de données:** Neon (staging branch)
 - **Variables:** Vercel Environment Variables (Preview)
 - **Usage:** Tests avant production, review PRs
 
 ### 3. Production
+
 - **URL:** https://logos.rv (ou votre domaine)
 - **Base de données:** Neon (production branch)
 - **Variables:** Vercel Environment Variables (Production)
@@ -107,11 +110,13 @@ cp .env.example .env.local
 ### 2. Upstash (Redis + Vector)
 
 **Redis:**
+
 1. Créer un compte sur [upstash.com](https://upstash.com)
 2. Créer une base Redis "logos-rv-cache"
 3. Copier `UPSTASH_REDIS_URL` et `UPSTASH_REDIS_TOKEN`
 
 **Vector:**
+
 1. Créer une base Vector "logos-rv-embeddings"
 2. Dimensions: 1536 (pour text-embedding-3-large)
 3. Copier `UPSTASH_VECTOR_URL` et `UPSTASH_VECTOR_TOKEN`
@@ -143,8 +148,8 @@ cp .env.example .env.local
 4. Créer un prix: 9.99€/mois récurrent
 5. Copier le Price ID dans `STRIPE_PREMIUM_PRICE_ID`
 6. Copier les clés:
-   - `STRIPE_SECRET_KEY` (sk_test_...)
-   - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` (pk_test_...)
+   - `STRIPE_SECRET_KEY` (sk*test*...)
+   - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` (pk*test*...)
 7. Configurer un webhook:
    - URL: `https://votre-domaine.com/api/webhooks/stripe`
    - Events: `checkout.session.completed`, `customer.subscription.updated`, `customer.subscription.deleted`
@@ -406,6 +411,7 @@ git push origin main
 ## Checklist Avant Lancement Production
 
 ### Sécurité
+
 - [ ] Toutes les variables d'environnement configurées
 - [ ] `NEXTAUTH_SECRET` généré de manière sécurisée
 - [ ] Clés API en mode production (Stripe, etc.)
@@ -413,34 +419,40 @@ git push origin main
 - [ ] CORS configuré correctement
 
 ### Base de Données
+
 - [ ] Migrations appliquées
 - [ ] Bibles indexées
 - [ ] Prédications uploadées et indexées
 - [ ] Backup automatique configuré (Neon)
 
 ### Paiements
+
 - [ ] Stripe en mode Live
 - [ ] Webhooks configurés et testés
 - [ ] Prix correct (9.99€/mois)
 - [ ] Emails de confirmation fonctionnels
 
 ### Performance
+
 - [ ] Cache Redis configuré
 - [ ] Images optimisées
 - [ ] Lighthouse score > 90
 
 ### Monitoring
+
 - [ ] PostHog configuré
 - [ ] Vercel Analytics activé
 - [ ] Alertes configurées (Vercel, Stripe)
 
 ### Légal
+
 - [ ] Mentions légales
 - [ ] Politique de confidentialité (RGPD)
 - [ ] CGU/CGV
 - [ ] Cookies banner
 
 ### Tests
+
 - [ ] Tests E2E passés
 - [ ] Tests de charge (recherche IA)
 - [ ] Tests sur mobile
@@ -450,17 +462,17 @@ git push origin main
 
 ## Coûts Mensuels Estimés
 
-| Service | Plan | Coût |
-|---------|------|------|
-| Vercel | Pro | $20/mois |
-| Neon | Launch | $19/mois |
-| Upstash Redis | Pay as you go | ~$5/mois |
-| Upstash Vector | Pay as you go | ~$10/mois |
-| OpenAI API | Pay as you go | ~$50/mois (1000 users) |
-| Stripe | 1.4% + 0.25€ | Variable |
-| Inngest | Free tier | $0 |
-| PostHog | Free tier | $0 |
-| Domaine | Porkbun | ~$10/an |
+| Service        | Plan          | Coût                   |
+| -------------- | ------------- | ---------------------- |
+| Vercel         | Pro           | $20/mois               |
+| Neon           | Launch        | $19/mois               |
+| Upstash Redis  | Pay as you go | ~$5/mois               |
+| Upstash Vector | Pay as you go | ~$10/mois              |
+| OpenAI API     | Pay as you go | ~$50/mois (1000 users) |
+| Stripe         | 1.4% + 0.25€  | Variable               |
+| Inngest        | Free tier     | $0                     |
+| PostHog        | Free tier     | $0                     |
+| Domaine        | Porkbun       | ~$10/an                |
 
 **Total estimé:** ~$100-120/mois pour 1000 utilisateurs actifs
 
@@ -469,18 +481,21 @@ git push origin main
 ## Support & Maintenance
 
 ### Tâches Hebdomadaires
+
 - Vérifier les logs d'erreurs (Vercel)
 - Vérifier les webhooks Stripe
 - Monitorer les coûts OpenAI
 - Répondre aux tickets support
 
 ### Tâches Mensuelles
+
 - Analyser les métriques PostHog
 - Optimiser les coûts API
 - Mettre à jour les dépendances
 - Backup manuel de la DB (en plus des automatiques)
 
 ### Tâches Trimestrielles
+
 - Audit de sécurité
 - Revue des performances
 - Mise à jour majeure des dépendances
