@@ -45,9 +45,9 @@ export async function POST(req: Request) {
     const fileName = file.name
     const fileType = fileName.split(".").pop()?.toLowerCase()
 
-    if (!fileType || !["txt", "docx", "pdf"].includes(fileType)) {
+    if (!fileType || !["txt", "docx", "doc", "pdf", "pptx", "ppt"].includes(fileType)) {
       return NextResponse.json(
-        { error: "Type de fichier non supporté. Utilisez .txt, .docx ou .pdf" },
+        { error: "Type de fichier non supporté. Utilisez .txt, .docx, .doc, .pdf, .pptx ou .ppt" },
         { status: 400 }
       )
     }

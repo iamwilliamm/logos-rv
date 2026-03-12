@@ -26,6 +26,18 @@ export async function parsePdfFile(buffer: Buffer): Promise<string> {
   }
 }
 
+export async function parsePptxFile(buffer: Buffer): Promise<string> {
+  try {
+    // Dynamic import for pptx parser
+    const pptxParser = await import("pptx-parser")
+    const text = await pptxParser.default(buffer)
+    return text
+  } catch (error) {
+    console.error("Error parsing PPTX:", error)
+    throw new Error("Failed to parse PPTX file")
+  }
+}
+
 export async function parseDocument(
   buffer: Buffer,
   fileType: string
@@ -34,9 +46,13 @@ export async function parseDocument(
     case "txt":
       return parseTextFile(buffer)
     case "docx":
+    case "doc":
       return parseDocxFile(buffer)
     case "pdf":
       return parsePdfFile(buffer)
+    case "pptx":
+    case "ppt":
+      return parsePptxFile(buffer)
     default:
       throw new Error(`Unsupported file type: ${fileType}`)
   }
