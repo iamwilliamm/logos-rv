@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="cross-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10" />
+      <feOffset dx="0" dy="5" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <!-- Base de la Croix - Forme Premium avec angles adoucis -->
+    <path d="M256 40
+             C240 40 230 50 230 65
+             L230 180
+             L80 180
+             C65 180 55 190 55 205
+             L55 245
+             C55 260 65 270 80 270
+             L230 270
+             L230 460
+             C230 475 240 485 256 485
+             C272 485 282 475 282 460
+             L282 270
+             L432 270
+             C447 270 457 260 457 245
+             L457 205
+             C457 190 447 180 432 180
+             L282 180
+             L282 65
+             C282 50 272 40 256 40 Z" fill="url(#cross-grad)" />
+
+    <!-- Éclat de lumière central -->
+    <path d="M230 225 L282 225 L282 250 L230 250 Z" fill="white" opacity="0.2" />
+
+    <!-- Contour de brillance subtile -->
+    <path d="M230 65 L230 180 L80 180" stroke="white" stroke-width="4" opacity="0.1" stroke-linecap="round" />
+  </g>
+</svg>
